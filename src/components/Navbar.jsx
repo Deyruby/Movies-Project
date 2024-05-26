@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../contexts/UserContext";
+
 
 const Navbar = () => {
+  console.log('NAVBAR')
+  
 
-const user={ name: 'Deyruby'}
+const {user,login, logout} = useContext(UserContext)
   
 
 
@@ -14,10 +18,10 @@ const user={ name: 'Deyruby'}
             <h2> {user? `Hola ${user.name}`: 'Bienvenid@'}  </h2>
           </span>
           {user? 
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={logout}>
             Cerrar Sesión
           </button>
-           : <button className="btn btn-primary">
+           : <button className="btn btn-primary" onClick={login}>
             Iniciar Sesión
             </button>}
           </div>
